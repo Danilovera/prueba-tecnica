@@ -1,7 +1,7 @@
 import { typeRegister } from "../types/types";
 
 
-export const registerReducer=(state, action) => {
+export const registerReducer=(state = {}, action) => {
     switch (action.type) {
         case typeRegister:
             return{
@@ -10,6 +10,6 @@ export const registerReducer=(state, action) => {
             }
     
         default:
-            state
+            return(state)
     }
 }

@@ -4,9 +4,8 @@ import Form from "react-bootstrap/Form";
 import useForm from "../hooks/useForm";
 import { agregarMonitoresAsync } from "../redux/actions/actionMonitores";
 import { useDispatch } from "react-redux/es/exports";
-import { useEffect } from "react"
-import { db } from "../firebase/firebaseConfig";
-import { doc, onSnapshot } from "firebase/firestore";
+import ListarMonitores from "./ListarMonitores";
+
 
 
 //De los monitores se desea almacenar: nombres, apellidos, programa académico,
@@ -29,23 +28,8 @@ const Monitores = () => {
         e.preventDefault()
         console.log(formValue)
         dispatch(agregarMonitoresAsync(formValue))
+        reset()
     }
-
-    const getLinks = async() => {
-    
-    const unsub = await onSnapshot(doc(db, "Monitores"), (doc) => {
-        unsub.forEach(x =>{
-            console.log(x.data())
-        })
-    });
-}
-
-    useEffect(() => {
-      
-        getLinks()
-    }, [])
-    
-
 
 
   return (
@@ -82,6 +66,8 @@ const Monitores = () => {
           Guardar
         </Button>
       </Form>
+      <hr />
+      <ListarMonitores/>
     </>
   );
 };

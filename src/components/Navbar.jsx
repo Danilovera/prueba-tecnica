@@ -32,6 +32,7 @@ const Navbar = () => {
             </span>
         </div>
         <ContainerButtons>
+        <Button> <LinkStyled to="/BusquedadMonitorias"> Filtro</LinkStyled></Button>
             <Button> <LinkStyled to="/monitores"> Monitores</LinkStyled></Button>
             <Button> <LinkStyled to="/monitorias">Monitorias</LinkStyled> </Button>
             <Button onClick={dispatch(actionLogoutAsync)}> Logouth</Button>
